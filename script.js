@@ -41,4 +41,13 @@ window.addEventListener('click', function() {
     }
 });
 
+fetch("https://script.google.com/macros/s/AKfycbyqFn9-wEljrdBMOTtZhbSlWlfi5PZGlLh-q85yi0H77XDEE6gykCpU2jHPcHEJBOM2wg/exec")
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("visitor-count").textContent = data.visits;
+  })
+  .catch(() => {
+    document.getElementById("visitor-count").textContent = "Error";
+  });
+
 typeWriter();
