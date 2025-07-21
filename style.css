@@ -1,5 +1,7 @@
 body {
     margin: 0;
+    padding: 0;
+    width: 100%;
     min-height: 100vh;
     font-family: "Bitcount Grid Single", system-ui;
     font-optical-sizing: auto;
@@ -10,7 +12,6 @@ body {
         "CRSV" 0.5,
         "ELSH" 0,
         "ELXP" 0;
-    /* background: linear-gradient(180deg, #1d1d1d 0%, #67528a 100%); */
     color: #222;
     display: flex;
     align-items: center;
@@ -32,40 +33,12 @@ footer {
     font-size: 0.9rem;
 }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    overflow: hidden;
-    
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-    margin: 0;
-    padding: 0;
-}
-
-nav a {
-    text-decoration: none;
-    color: #222;
-    font-weight: 500;
-    transition: color 0.2s;
-}
-
-nav a:hover {
-    color: #4f46e5;
-}
-
 .main-card {
-    display: flex;
+    display: grid;
     flex-direction: column;
     align-items: center;
-    /* justify-content: center; */
-    max-height: 75vh;
+    justify-content: center;
+    min-height: 400px;
     text-align: center;
     background: #1d1d1d0d; /* semi-transparent */
     border-radius: 3rem;
@@ -76,6 +49,10 @@ nav a:hover {
     backdrop-filter: blur(5px) saturate(50%);
     color: #fff;
     position: relative;
+
+}
+.main-card .games {
+    justify-items: center;
 }
 
 .card-bg {
@@ -86,7 +63,7 @@ nav a:hover {
     height: 130%;
     object-fit: contain;
     z-index: 0;
-    opacity: 0.25; /* Adjust for desired visibility */
+    opacity: 0.25;
     pointer-events: none;
     border-radius: 2rem;
 }
@@ -96,12 +73,41 @@ nav a:hover {
     z-index: 1;
 }
 
+
+.card-container {
+    perspective: 1500px;
+    position: relative;
+    width: 800px;
+    max-width: 90vw;
+    min-height: 400px;
+    box-sizing: border-box;
+
+}
+
+.card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    transform-style: preserve-3d;
+    transition: transform 0.8s, opacity 0.5s;
+    backface-visibility: hidden;
+    opacity: 0;
+    transform: rotateY(180deg);
+    pointer-events: none;
+}
+
+.card.active {
+    opacity: 1;
+    transform: rotateY(0deg);
+    pointer-events: auto;
+}
+
 .welcome-text {
     font-size: 1.25rem;
-    padding-top: 50px;
+    padding-top: 0;
     margin-top: 0px;
     margin-bottom: 0px;
-    padding-bottom: -900px;
     font-weight: 400;
 }
 
@@ -114,6 +120,69 @@ nav a:hover {
     font-style: normal;
     text-shadow: 0 0 20px #4f46e5, 0 0 40px #a78bfa;
 }
+.main-card h2 {
+    font-size: 1.6rem;
+    color: #fff;
+    margin: 0 0 16px;
+    text-align: center;
+}
+
+.games {
+  display: grid;
+  margin: 10px;
+  padding: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(70px, 1fr)); /* smaller minimum */
+  gap: 10px;
+  width: 90%;
+}
+
+.game-card {
+  position: relative;
+  width: 100%;
+  padding-top: 85%; /* flatter ratio */
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  overflow: hidden;
+  animation: float 3s ease-in-out infinite;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.game-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #4f46e5, 0 0 40px #a78bfa;
+}
+
+.game-card:nth-child(1) { animation-delay: 0s; }
+.game-card:nth-child(2) { animation-delay: 0.3s; }
+.game-card:nth-child(3) { animation-delay: 0.6s; }
+.game-card:nth-child(4) { animation-delay: 0.1s; }
+.game-card:nth-child(5) { animation-delay: 0.4s; }
+
+@keyframes float {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}
+
+.game-card img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.game-card h3 {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  margin: 0;
+  padding: 3px 0;
+  font-size: 0.6rem;
+  text-align: center;
+  background: #1d1d1d;
+
+}
+
 
 .cta-btn {
     font-family: "Jersey 15", sans-serif;
@@ -141,12 +210,6 @@ nav a:hover {
     transform: scale(1.08);
 }
 
-.copyright {
-    color: #fff;
-    font-size: 0.8rem;
-    margin-top: 50px;
-}
-
 #bg-video {
     position: fixed;
     top: 0;
@@ -157,12 +220,15 @@ nav a:hover {
     min-height: 100vh;
     object-fit: cover;
     z-index: -1;
-    opacity: 1; /* Adjust as needed */
+    opacity: 1;
     pointer-events: none;
-    filter: saturate(0.5); /* Lower value = less saturated */
+    filter: saturate(0.5);
 }
 
 .caret {
+    font-family: "UnifrakturCook", cursive;
+    font-size: 7rem;
+    text-shadow: 0 0 20px #4f46e5, 0 0 40px #a78bfa;
     animation: blink 0.7s steps(1) infinite;
 }
 
@@ -177,36 +243,33 @@ nav a:hover {
     justify-content: center;
     margin-top: -40px;
     margin-bottom: 40px;
-    
 }
 
 .tag {
     color: #fff;
-    padding: 0.8vh 0.8vw;   /* smaller padding */
+    padding: 0.8vh 0.8vw;
     border-radius: 999px;
-    font-size: 0.8rem;        /* smaller font size */
+    font-size: 0.8rem;
     font-weight: 600;
     letter-spacing: 0.05em;
     user-select: none;
     border: none;
     box-shadow: 0 0 20px #161616;
     background: #1d1d1d;
+    animation: float 3s ease-in-out infinite;
+    transition: transform 0.3s;
 }
+
+.tag:nth-child(1) { animation-delay: 0s; }
+.tag:nth-child(2) { animation-delay: 0.4s; }
+.tag:nth-child(3) { animation-delay: 0.2s; }
+.tag:nth-child(4) { animation-delay: 0.6s; }
 
 .view-counter {
     font-family: "Bitcount Grid Single", system-ui;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    font-variation-settings:
-        "slnt" 0,
-        "CRSV" 0.5,
-        "ELSH" 0,
-        "ELXP" 0;
 }
 
-/* RAIN EFFECT */
-i {
+i.raindrop {
     position: absolute;
     height: 200px;
     background: linear-gradient(transparent, #ffff 500%);
@@ -214,12 +277,74 @@ i {
     border-bottom-right-radius: 500px;
     animation: animate 0.5s linear infinite;
 }
-@keyframes animate 
-{
-    0% {
-        transform: translateY(-490px);
+
+@keyframes animate {
+    0% { transform: translateY(-500px); }
+    100% { transform: translateY(calc(100vh + 200px)); }
+}
+/* Default button style (desktop) */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transform-origin: center;
+    background: #1d1d1de1;
+    color: white;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    pointer-events: auto;
+    z-index: 2;
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+}
+
+/* Hover effect */
+.nav-btn:hover {
+    background: #a78bfa;
+    color: #000;
+    box-shadow: 0 0 20px #a78bfa, 0 0 40px #4f46e5;
+    transform: translateY(-50%) scale(1.2); /* Combine scale with translateY */
+}
+
+/* Position left and right for large screens */
+.nav-btn.left {
+    left: -30px;
+}
+
+.nav-btn.right {
+    right: -30px;
+}
+
+/* Wrapper for both buttons */
+.nav-btn-wrapper {
+    gap: 30px;
+    margin-bottom: 10px;
+}
+
+/* Responsive layout for mobile */
+@media (max-width: 600px) {
+    .nav-btn-wrapper {
+        display: flex;
+        justify-content: center;
+        order: -1;
+        transform: translateY(-80%);
+        position: static;
     }
-    100%{
-        transform: translatey(calc(100vh + 200px));
+
+    .nav-btn {
+        position: static;
+    }
+
+    .nav-btn:hover {
+        transform: translateY(-50%) scale(1.2); /* works fine since there's no translateY */
+    }
+
+    .card-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 }

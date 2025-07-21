@@ -36,20 +36,54 @@
     </video>
 
     <main>
-        <section class="main-card">
-            <img src="media/logonobg.png" alt="Card Background" class="card-bg">
-            <p class="welcome-text">Welcome to</p>
-            <h1 id="typewriter"></h1>
-            <div class="tags">
-                <span class="tag">gaming</span>
-                <span class="tag">semi-toxic</span>
-                <span class="tag">social</span>
-                <span class="tag">17+</span>
+        <div class="card-container">
+            <div class="nav-btn-wrapper">
+                <button id="previous-card" class="nav-btn left"> < </button>
+                <button id="next-card" class="nav-btn right"> > </button>
             </div>
-            <a href="https://discord.com/invite/utop1a" class="cta-btn" target="_blank" rel="noopener">> Join Us <</a>
+            <section id="card-1" class="card main-card active">
+                <img src="media/logonobg.png" alt="Card Background" class="card-bg">
+                <p class="welcome-text">Welcome to</p>
+                <h1></h1>
+                <div class="tags">
+                    <span class="tag">gaming</span>
+                    <span class="tag">semi-toxic</span>
+                    <span class="tag">social</span>
+                    <span class="tag">17+</span>
+                </div>
+                <a href="https://discord.com/invite/utop1a" class="cta-btn" target="_blank" rel="noopener">> Join Us <</a>
+                <p class="view-counter">Views: <span id="visitor-count">Loading...</span></p>
+            </section>
 
-            <p class="view-counter">Views: <span id="visitor-count">Loading...</span></p>
-        </section>
+            <section id="card-2" class="card main-card">
+                <!-- You can customize the layout for Card 2 here -->
+                <h2 style="color: #fff;">What are we playing?</h2>
+                <div class="games">
+                    <div class="game-card">
+                        <img src="media/games/roblox.jpg" alt="Roblox" />
+                        <h3>Roblox</h3>
+                    </div>
+                    <div class="game-card">
+                        <img src="media/games/valorant.jpg" alt="Valorant" />
+                        <h3>Valorant</h3>
+                    </div>
+                    <div class="game-card">
+                        <img src="media/games/gtav.jpeg" alt="GTA V" />
+                        <h3>GTA V</h3>
+                    </div>
+                    <div class="game-card">
+                        <img src="media/games/mlbb.jpeg" alt="MLBB" />
+                        <h3>MLBB</h3>
+                    </div>
+                    <div class="game-card">
+                        <img src="media/games/codm.jpg" alt="CODM" />
+                        <h3>CODM</h3>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+        
     </main>
     <audio id="bg-music" src="media/music/music.mp3" autoplay loop></audio>
     <script src="script.js"></script>
