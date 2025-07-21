@@ -41,45 +41,82 @@ nav a:hover {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 80vh;
+    height: 60vh;
     text-align: center;
-    background: rgba(24, 104, 233, 0.05); /* semi-transparent */
+    background: #1d1d1d0d; /* semi-transparent */
     border-radius: 3rem;
     margin: 0;;
     width: 90vw;         /* Responsive width */
     max-width: 800px;    /* Increase this value */
-    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
-    backdrop-filter: blur(5px) saturate(5%);
+    box-shadow: 0 0 20px #161616;
+    backdrop-filter: blur(5px) saturate(50%);
     color: #fff;
+    position: relative;
+}
+
+.card-bg {
+    position: absolute;
+    top: -10%;
+    left: -15%;
+    width: 130%;
+    height: 130%;
+    object-fit: contain;
+    z-index: 0;
+    opacity: 0.25; /* Adjust for desired visibility */
+    pointer-events: none;
+    border-radius: 2rem;
+}
+
+.main-card > *:not(.card-bg) {
+    position: relative;
+    z-index: 1;
+}
+
+.welcome-text {
+    font-size: 1.25rem;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-bottom: -900px;
+    font-weight: 400;
 }
 
 .main-card h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: 7rem;
+    margin-top: 0px;
+    margin-bottom: 50px;
     font-weight: 700;
-}
-
-.main-card p {
-    font-size: 1.25rem;
-    margin-bottom: 2rem;
-    font-weight: 400;
+    font-family: "UnifrakturCook", cursive;
+    font-style: normal;
+    text-shadow: 0 0 20px #4f46e5, 0 0 40px #a78bfa;
 }
 
 .cta-btn {
     display: inline-block;
     padding: 0.75rem 2rem;
-    background: #fff;
-    color: #4f46e5;
+    background: linear-gradient(90deg, #4f46e5 0%, #a78bfa 100%);
+    color: #ffffff;
     font-weight: 700;
     border-radius: 999px;
     text-decoration: none;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    transition: background 0.2s, color 0.2s;
+    box-shadow: 0 0 20px #4f46e5, 0 0 40px #a78bfa;
+    transition:
+        background 0.3s,
+        color 0.3s,
+        box-shadow 0.3s,
+        transform 0.2s;
 }
 
 .cta-btn:hover {
-    background: #4f46e5;
+    background: linear-gradient(90deg, #a78bfa 0%, #4f46e5 100%);
     color: #fff;
+    box-shadow: 0 0 30px #a78bfa, 0 0 60px #4f46e5;
+    transform: scale(1.08);
+}
+
+.copyright {
+    color: #fff;
+    font-size: 0.8rem;
+    margin-top: 50px;
 }
 
 #bg-video {
@@ -92,6 +129,37 @@ nav a:hover {
     min-height: 100vh;
     object-fit: cover;
     z-index: -1;
-    opacity: 0.9; /* Adjust as needed */
+    opacity: 1; /* Adjust as needed */
     pointer-events: none;
+    filter: saturate(0.5); /* Lower value = less saturated */
+}
+
+.caret {
+    animation: blink 0.7s steps(1) infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+.tags {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: -40px;
+    margin-bottom: 40px;
+}
+
+.tag {
+    color: #fff;
+    padding: 0.3rem 0.8rem;   /* smaller padding */
+    border-radius: 999px;
+    font-size: 0.9rem;        /* smaller font size */
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    user-select: none;
+    border: none;
+    box-shadow: 0 0 20px #161616;
+    background: #1d1d1d;
 }

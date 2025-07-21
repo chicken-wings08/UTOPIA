@@ -5,22 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>.gg/utop1a</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css?family=Inter:400,700&display=swap" rel="stylesheet">
-</head>
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet"></head>
 <body>
     <!-- Background Video -->
     <video autoplay muted loop id="bg-video">
-        <source src="media/background(3).mp4" type="video/mp4">
-        Your browser does not support the video tag.
+        <source src="media/bg6.mp4" type="video/mp4">
     </video>
 
     <main>
         <section class="main-card">
-            <h1>Welcome to Utopia</h1>
-            <p>DISCORD SERVER</p>
-            <a href="#" class="cta-btn">Join Now</a>
+            <img src="media/logonobg.png" alt="Card Background" class="card-bg">
+            <p class="welcome-text">Welcome to</p>
+            <h1 id="typewriter"></h1>
+            <div class="tags">
+                <span class="tag">gaming</span>
+                <span class="tag">semi-toxic</span>
+                <span class="tag">hangout</span>
+            </div>
+            <a href="https://discord.com/invite/utop1a" class="cta-btn" target="_blank" rel="noopener">Join Us!</a>
+
+            <p class="copyright">© 2025 UTOPIA</p>
+            <p id="view-counter" style="color:#fff; font-size:1rem; margin-top:20px;">Views: ...</p>
         </section>
     </main>
+    <audio id="bg-music" src="media/music/music.mp3" autoplay loop></audio>
+    <script src="script.js"></script>
 
 </body>
 </html>
