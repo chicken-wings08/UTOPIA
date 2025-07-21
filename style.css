@@ -1,6 +1,8 @@
-body {
+html, body {
     margin: 0;
     min-height: 100vh;
+    height:100%;
+    width: 100%;
     font-family: 'Inter', Arial, sans-serif;
     /* background: linear-gradient(180deg, #1d1d1d 0%, #67528a 100%); */
     color: #222;
@@ -15,6 +17,8 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
+    overflow: hidden;
+    
 }
 
 nav ul {
@@ -41,7 +45,7 @@ nav a:hover {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 60vh;
+    height: 75vh;
     text-align: center;
     background: #1d1d1d0d; /* semi-transparent */
     border-radius: 3rem;
@@ -74,6 +78,7 @@ nav a:hover {
 
 .welcome-text {
     font-size: 1.25rem;
+    padding-top: 50px;
     margin-top: 0px;
     margin-bottom: 0px;
     padding-bottom: -900px;
@@ -88,7 +93,6 @@ nav a:hover {
     font-family: "UnifrakturCook", cursive;
     font-style: normal;
     text-shadow: 0 0 20px #4f46e5, 0 0 40px #a78bfa;
-    -webkit-text-shadow: 0 0 20px #4f46e5, 0 0 40px #a78bfa;
 }
 
 .cta-btn {
@@ -150,6 +154,7 @@ nav a:hover {
     justify-content: center;
     margin-top: -40px;
     margin-bottom: 40px;
+    
 }
 
 .tag {
