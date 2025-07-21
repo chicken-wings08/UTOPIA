@@ -88,6 +88,7 @@ nav a:hover {
     font-family: "UnifrakturCook", cursive;
     font-style: normal;
     text-shadow: 0 0 20px #4f46e5, 0 0 40px #a78bfa;
+    -webkit-text-shadow: 0 0 20px #4f46e5, 0 0 40px #a78bfa;
 }
 
 .cta-btn {
