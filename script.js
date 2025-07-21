@@ -27,6 +27,7 @@ function typeWriter() {
     }
   }
 }
+typeWriter();
 
 fetch('https://api.countapi.xyz/hit/utopia-website/utopia')
   .then(res => res.json())
@@ -50,4 +51,31 @@ fetch("https://script.google.com/macros/s/AKfycbyqFn9-wEljrdBMOTtZhbSlWlfi5PZGlL
     document.getElementById("visitor-count").textContent = "Error";
   });
 
-typeWriter();
+function rain(){
+  let amount = 50;
+  let body = document.querySelector('body');
+
+  // Clear old drops
+  document.querySelectorAll('i.raindrop').forEach(drop => drop.remove());
+
+  for (let i = 0; i < amount; i++) {
+    let drop = document.createElement('i');
+    drop.classList.add('raindrop'); // Add a class for easy cleanup
+
+    let size = Math.random() * 2;
+    let posX = Math.floor(Math.random() * window.innerWidth);
+    let delay = Math.random() * -20;
+
+    drop.style.width = 0.2 + size + 'px';
+    drop.style.left = posX + 'px';
+    drop.style.animationDelay = delay + 's';
+
+    body.appendChild(drop);
+  }
+}
+
+// Initial spawn
+rain();
+
+// Regenerate rain when the window is resized
+window.addEventListener('resize', rain);

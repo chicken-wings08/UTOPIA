@@ -1,7 +1,15 @@
 body {
     margin: 0;
     min-height: 100vh;
-    font-family: 'Inter', Arial, sans-serif;
+    font-family: "Bitcount Grid Single", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+        "slnt" 0,
+        "CRSV" 0.5,
+        "ELSH" 0,
+        "ELXP" 0;
     /* background: linear-gradient(180deg, #1d1d1d 0%, #67528a 100%); */
     color: #222;
     display: flex;
@@ -108,11 +116,14 @@ nav a:hover {
 }
 
 .cta-btn {
+    font-family: "Jersey 15", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
     display: inline-block;
     padding: 0.75rem 2rem;
     background: linear-gradient(90deg, #4f46e5 0%, #a78bfa 100%);
     color: #ffffff;
-    font-weight: 700;
     border-radius: 999px;
     text-decoration: none;
     box-shadow: 0 0 20px #4f46e5, 0 0 40px #a78bfa;
@@ -180,4 +191,35 @@ nav a:hover {
     border: none;
     box-shadow: 0 0 20px #161616;
     background: #1d1d1d;
+}
+
+.view-counter {
+    font-family: "Bitcount Grid Single", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+        "slnt" 0,
+        "CRSV" 0.5,
+        "ELSH" 0,
+        "ELXP" 0;
+}
+
+/* RAIN EFFECT */
+i {
+    position: absolute;
+    height: 200px;
+    background: linear-gradient(transparent, #ffff 500%);
+    border-bottom-left-radius: 500px;
+    border-bottom-right-radius: 500px;
+    animation: animate 0.5s linear infinite;
+}
+@keyframes animate 
+{
+    0% {
+        transform: translateY(-490px);
+    }
+    100%{
+        transform: translatey(calc(100vh + 200px));
+    }
 }
