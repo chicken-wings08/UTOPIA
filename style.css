@@ -50,6 +50,7 @@ footer {
     color: #fff;
     position: relative;
 
+
 }
 .main-card .games {
     justify-items: center;
@@ -75,6 +76,7 @@ footer {
 
 
 .card-container {
+
     perspective: 1500px;
     position: relative;
     width: 800px;
