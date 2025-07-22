@@ -16,6 +16,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    backface-visibility: hidden;
+
 }
 
 html, body {
@@ -131,9 +133,10 @@ footer {
 
 .games {
   display: grid;
+  justify-content: center;
   margin: 10px;
   padding: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(70px, 1fr)); /* smaller minimum */
+  grid-template-columns: repeat(auto-fit, minmax(100px, 120px)); /* smaller minimum */
   gap: 10px;
   width: 90%;
 }
@@ -191,26 +194,96 @@ footer {
     font-weight: 400;
     font-style: normal;
     font-size: 20px;
-    display: inline-block;
+    display: flex;
     padding: 0.75rem 2rem;
     background: linear-gradient(90deg, #4f46e5 0%, #a78bfa 100%);
     color: #ffffff;
     border-radius: 999px;
     text-decoration: none;
     box-shadow: 0 0 20px #4f46e5, 0 0 40px #a78bfa;
-    transition:
-        background 0.3s,
-        color 0.3s,
-        box-shadow 0.3s,
-        transform 0.2s;
+    transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
+    z-index: 0;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
 }
 
 .cta-btn:hover {
-    background: linear-gradient(90deg, #a78bfa 0%, #4f46e5 100%);
-    color: #fff;
-    box-shadow: 0 0 30px #a78bfa, 0 0 60px #4f46e5;
-    transform: scale(1.08);
+    animation: rotate624 0.7s ease-in-out both;
 }
+
+.cta-btn span {
+    z-index: 20;
+}
+.cta-btn:hover span {
+    animation: storm1261 0.7s ease-in-out both;
+    animation-delay: 0.06s;
+}
+
+.cta-btn:after {
+  background: #ffffff;
+  content: "";
+  height: 155px;
+  left: -75px;
+  opacity: 0.4;
+  position: absolute;
+  top: -50px;
+  transform: rotate(35deg);
+  transition: all 1000ms cubic-bezier(0.19, 1, 0.22, 1);
+  width: 50px;
+  z-index: -10;
+}
+
+.cta-btn:hover:after {
+  left: 120%;
+  transition: all 1000ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+
+@keyframes rotate624 {
+  0% {
+    transform: rotate(0deg) translate3d(0, 0, 0) scale(1);
+  }
+
+  25% {
+    transform: rotate(3deg) translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: rotate(-3deg) translate3d(0, 0, 0) scale(1.2);
+  }
+
+  75% {
+    transform: rotate(1deg) translate3d(0, 0, 0) scale(1);
+  }
+
+  100% {
+    transform: rotate(0deg) translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes storm1261 {
+    0% {
+    transform: translate3d(0, 0, 0) translateZ(0);
+    }
+
+    25% {
+    transform: translate3d(4px, 0, 0) translateZ(0);
+    }
+
+    50% {
+    transform: translate3d(-3px, 0, 0) translateZ(0);
+    }
+
+    75% {
+    transform: translate3d(2px, 0, 0) translateZ(0);
+    }
+
+    100% {
+    transform: translate3d(0, 0, 0) translateZ(0);
+    }
+}
+
 
 #bg-video {
     position: fixed;
@@ -293,8 +366,9 @@ i.raindrop {
     background: #1d1d1de1;
     color: white;
     font-size: 1.5rem;
-    border: none;
-    border-radius: 50%;
+    border:#fff 1px solid;
+    box-shadow: #1d1d1d 0 0 20px;
+    border-radius: 10%;
     width: 40px;
     height: 40px;
     cursor: pointer;

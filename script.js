@@ -130,3 +130,16 @@ document.getElementById('previous-card').addEventListener('click', () => {
 
 // Initial card load
 showCard(currentCardIndex);
+
+
+// BUTTON
+
+const btn = document.querySelector('.cta-btn');
+
+btn.addEventListener('mouseenter', () => {
+  btn.classList.add('hovering');
+});
+
+btn.addEventListener('mouseleave', () => {
+  btn.classList.remove('hovering');
+});
