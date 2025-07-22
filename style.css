@@ -149,9 +149,11 @@ footer {
   overflow: hidden;
   animation: float 3s ease-in-out infinite;
   transition: transform 0.3s, box-shadow 0.3s;
+  padding-top: 85%;
+  will-change: transform;
 }
 .game-card:hover {
-  transform: scale(1.05);
+  transform: translateY(-6px) scale(1.05);
   box-shadow: 0 0 20px #4f46e5, 0 0 40px #a78bfa;
 }
 
@@ -162,9 +164,9 @@ footer {
 .game-card:nth-child(5) { animation-delay: 0.4s; }
 
 @keyframes float {
-  0%   { transform: translateY(0px); }
-  50%  { transform: translateY(-6px); }
-  100% { transform: translateY(0px); }
+  0%   { transform: translateY(0px) scale(1); }
+  50%  { transform: translateY(-6px) scale(1); }
+  100% { transform: translateY(0px) scale(1); }
 }
 
 .game-card img {
